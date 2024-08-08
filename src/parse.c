@@ -11,14 +11,14 @@ void	to_lower(char *input)
 	}
 }
 
-bool	void_chars(char	*input)
+bool	forbidden_chars(char	*input)
 {
 	int	i = 0;
 	while (input[i])
 	{
 		if (!ft_isalpha(input[i]))
 		{
-			printf("Has introducido caracteres no validos\n");
+			printf(FORBIDDEN);
 			return (true);
 		}
 		i++;

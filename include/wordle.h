@@ -57,7 +57,12 @@
 #define BOLD "\033[1m"
 
 // DEFINES
-//#define MAX_ARGS 100
+#define WIN CYAN "\nHAS GANADO\n" RESET
+#define LOSE RED "\nHAS PERDIDO\n" RESET
+#define FORBIDDEN RED "Has introducido caracteres inválidos\n" RESET
+#define EOF_MSG MAGENTA "\nCaught EOF (Ctrl-D). Exiting...\n" RESET
+
+
 
 // STRUCTURES
 typedef enum s_bool
@@ -85,4 +90,4 @@ void	signal_sigquit(int sig);
 //						PARSE.C						//
 //////////////////////////////////////////////////////
 void	to_lower(char *input);
-bool	void_chars(char	*input);
+bool	forbidden_chars(char	*input);
