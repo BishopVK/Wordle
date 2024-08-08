@@ -35,9 +35,8 @@ int	main(void)
 		printf("\nPalabra a adivinar: " YELLOW "%li letras\n" RESET, ft_strlen(word));
 		printf("Número de intentos restantes: " YELLOW "%i\n" RESET, i);
 		input = readline("Introduce tu palabra: ");
-		if (!input)
+		if (!input) // Detectar Ctrl-D (EOF)
 		{
-			// Detectar Ctrl-D (EOF)
 			printf(EOF_MSG);
 			exit (0);
 		}
@@ -45,22 +44,14 @@ int	main(void)
 			add_history(input);
 		input_trimed = ft_strtrim(input, " ");
 		free(input);
-		/* if (forbidden_chars(input_trimed) == true)
-			continue;
-		to_lower(input_trimed); */
-		printf("Has introducido --> %s\n", input_trimed);
 		if (parse(input_trimed, word) == true)
 			continue;
-		if (strcmp(input_trimed, word) == 0)
-		{
-			printf(WIN);
-			free(input_trimed);
-			exit (0);
-		}
+		printf("Has introducido --> %s\n", input_trimed);
 		//check_corrects(input_trimed, word);
 		free(input_trimed); // Liberar la memoria asignada por ft_strtrim
 		i--;
 	}
 	printf(LOSE);
+	printf("La palabra correcta era " YELLOW "%s\n" RESET, word);
 	return (0);
 }

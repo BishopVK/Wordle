@@ -89,11 +89,11 @@ void	signal_sigquit(int sig);
 //						PARSE.C						//
 //////////////////////////////////////////////////////
 bool	long_word(char *input, const char *word);
-bool	forbidden_chars(char	*input);
+bool	forbidden_chars(char *input);
 void	to_lower(char *input);
 bool	parse(char *input, const char *word);
 
 //////////////////////////////////////////////////////
 //					GAME_LOGIC.C					//
 //////////////////////////////////////////////////////
-void	check_corrects(char	*input, const char	*word);
+void	check_corrects(char *input, const char *word);
