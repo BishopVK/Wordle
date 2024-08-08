@@ -34,7 +34,7 @@ int	main(void)
 		signal(SIGQUIT, signal_sigquit);
 		printf("\nPalabra a adivinar: " YELLOW "%li letras\n" RESET, ft_strlen(word));
 		printf("Número de intentos restantes: " YELLOW "%i\n" RESET, i);
-		input = readline("Introduce tu palabra: ");
+		input = readline(READLINE);
 		if (!input) // Detectar Ctrl-D (EOF)
 		{
 			printf(EOF_MSG);
@@ -45,10 +45,13 @@ int	main(void)
 		input_trimed = ft_strtrim(input, " ");
 		free(input);
 		if (parse(input_trimed, word) == true)
+		{
+			free(input_trimed);
 			continue;
+		}
 		printf("Has introducido --> %s\n", input_trimed);
 		//check_corrects(input_trimed, word);
-		free(input_trimed); // Liberar la memoria asignada por ft_strtrim
+		free(input_trimed);
 		i--;
 	}
 	printf(LOSE);

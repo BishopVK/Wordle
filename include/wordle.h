@@ -57,6 +57,7 @@
 #define BOLD "\033[1m"
 
 // DEFINES
+#define READLINE "Introduce tu palabra: "
 #define WIN CYAN "\nHAS GANADO\n" RESET
 #define LOSE RED "\nHAS PERDIDO\n" RESET
 #define FORBIDDEN RED "Has introducido caracteres inválidos\n" RESET
