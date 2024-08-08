@@ -45,16 +45,19 @@ int	main(void)
 			add_history(input);
 		input_trimed = ft_strtrim(input, " ");
 		free(input);
-		if (forbidden_chars(input_trimed) == true)
+		/* if (forbidden_chars(input_trimed) == true)
 			continue;
-		to_lower(input_trimed);
+		to_lower(input_trimed); */
 		printf("Has introducido --> %s\n", input_trimed);
+		if (parse(input_trimed, word) == true)
+			continue;
 		if (strcmp(input_trimed, word) == 0)
 		{
 			printf(WIN);
 			free(input_trimed);
 			exit (0);
 		}
+		//check_corrects(input_trimed, word);
 		free(input_trimed); // Liberar la memoria asignada por ft_strtrim
 		i--;
 	}

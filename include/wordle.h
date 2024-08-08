@@ -60,9 +60,8 @@
 #define WIN CYAN "\nHAS GANADO\n" RESET
 #define LOSE RED "\nHAS PERDIDO\n" RESET
 #define FORBIDDEN RED "Has introducido caracteres inválidos\n" RESET
+#define WRONG_LONG RED "Número de letras incorrecto\n" RESET
 #define EOF_MSG MAGENTA "\nCaught EOF (Ctrl-D). Exiting...\n" RESET
-
-
 
 // STRUCTURES
 typedef enum s_bool
@@ -89,5 +88,12 @@ void	signal_sigquit(int sig);
 //////////////////////////////////////////////////////
 //						PARSE.C						//
 //////////////////////////////////////////////////////
-void	to_lower(char *input);
+bool	long_word(char *input, const char *word);
 bool	forbidden_chars(char	*input);
+void	to_lower(char *input);
+bool	parse(char *input, const char *word);
+
+//////////////////////////////////////////////////////
+//					GAME_LOGIC.C					//
+//////////////////////////////////////////////////////
+void	check_corrects(char	*input, const char	*word);
