@@ -21,7 +21,8 @@ READFLAG		=	-lreadline
 
 SRC_DIR			=	src
 SRC				=	$(SRC_DIR)/main.c \
-					$(SRC_DIR)/parse.c
+					$(SRC_DIR)/parse.c \
+					$(SRC_DIR)/game_logic.c
 
 OBJ				=	$(SRC:.c=.o)
 
