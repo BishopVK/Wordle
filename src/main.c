@@ -25,7 +25,7 @@ int	main(void)
 	int			i = 5;
 	char		*input;
 	char		*input_trimed;
-	const char	*word = "Patata";
+	const char	*word = "char";
 
 	while (i)
 	{
@@ -56,5 +56,30 @@ int	main(void)
 	}
 	printf(LOSE);
 	printf("La palabra correcta era " YELLOW "%s\n" RESET, word);
+
+	// Retry
+	/* input = readline(MAGENTA "¿Quieres volver a jugar? (si/no)" RESET);
+	input_trimed = ft_strtrim(input, " ");
+	free(input);
+	to_lower(input_trimed);
+	while (1)
+	{
+		printf("Entre aquí!\n");
+		if (ft_strcmp(input_trimed, "si") == 0)
+		{
+			free(input_trimed);
+			main();
+		}
+		else if (ft_strcmp(input_trimed, "no") == 0)
+		{
+			free(input_trimed);
+			return (0);
+		}
+		free(input_trimed);
+		input = readline(MAGENTA "¿Quieres volver a jugar? (si/no)" RESET);
+		input_trimed = ft_strtrim(input, " ");
+		free(input);
+		to_lower(input_trimed);
+	} */
 	return (0);
 }
