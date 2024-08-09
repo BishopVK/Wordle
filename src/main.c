@@ -25,7 +25,7 @@ int	main(void)
 	int			i = 5;
 	char		*input;
 	char		*input_trimed;
-	const char	*word = "Daniel";
+	const char	*word = "Patata";
 
 	while (i)
 	{
@@ -50,7 +50,7 @@ int	main(void)
 			continue;
 		}
 		printf("Has introducido --> %s\n", input_trimed);
-		//check_corrects(input_trimed, word);
+		check_corrects(input_trimed, word);
 		free(input_trimed);
 		i--;
 	}
