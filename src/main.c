@@ -22,18 +22,18 @@ void	signal_sigquit(int sig)
 
 int	main(void)
 {
-	int			i = 5;
+	int			try = 6;
 	char		*input;
 	char		*input_trimed;
-	const char	*word = "char";
+	const char	*word = "marea";
 
-	while (i)
+	while (try)
 	{
 		// Configurar los manejadores de señal
 		signal(SIGINT, signal_sigint);
 		signal(SIGQUIT, signal_sigquit);
 		printf("\nPalabra a adivinar: " YELLOW "%li letras\n" RESET, ft_strlen(word));
-		printf("Número de intentos restantes: " YELLOW "%i\n" RESET, i);
+		printf("Número de intentos restantes: " YELLOW "%i\n" RESET, try);
 		input = readline(READLINE);
 		if (!input) // Detectar Ctrl-D (EOF)
 		{
@@ -52,7 +52,7 @@ int	main(void)
 		printf("Has introducido --> %s\n", input_trimed);
 		check_corrects(input_trimed, word);
 		free(input_trimed);
-		i--;
+		try--;
 	}
 	printf(LOSE);
 	printf("La palabra correcta era " YELLOW "%s\n" RESET, word);

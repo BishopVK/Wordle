@@ -235,47 +235,64 @@ void	check_corrects(char	*input, const char	*word)
 
 #define MAX_LEN 100
 
-void print_colored(char c, const char *color) {
-    printf("%s%c\033[0m", color, c);
+void print_colored(char c, const char *color)
+{
+	printf("%s%c\033[0m", color, c);
 }
 
-void check_corrects(char *input, const char *word) {
-    int len = strlen(word);
-    char result[MAX_LEN];
-    int marked[MAX_LEN] = {0}; // Array to keep track of marked letters
+void check_corrects(char *input, const char *word)
+{
+	int		len = ft_strlen(word);
+	char	result[MAX_LEN];
+	int		marked[MAX_LEN] = {0}; // Array to keep track of marked letters
+	int		i, j;
 
-    // First pass: check for correct positions (green)
-    for (int i = 0; i < len; i++) {
-        if (input[i] == word[i]) {
-            result[i] = 'G'; // G for Green
-            marked[i] = 1;
-        } else {
-            result[i] = ' ';
-        }
-    }
+	// First pass: check for correct positions (green)
+	i = 0;
+	while (i < len)
+	{
+		if (input[i] == word[i])
+		{
+			result[i] = 'G'; // G for Green
+			marked[i] = 1;
+		}
+		else
+			result[i] = ' ';
+		i++;
+	}
 
-    // Second pass: check for correct letters in wrong positions (yellow)
-    for (int i = 0; i < len; i++) {
-        if (result[i] != 'G') {
-            for (int j = 0; j < len; j++) {
-                if (input[i] == word[j] && !marked[j]) {
-                    result[i] = 'Y'; // Y for Yellow
-                    marked[j] = 1;
-                    break;
-                }
-            }
-        }
-    }
+	// Second pass: check for correct letters in wrong positions (yellow)
+	i = 0;
+	while (i < len)
+	{
+		if (result[i] != 'G')
+		{
+			j = 0;
+			while (j < len)
+			{
+				if (input[i] == word[j] && !marked[j])
+				{
+					result[i] = 'Y'; // Y for Yellow
+					marked[j] = 1;
+					break;
+				}
+				j++;
+			}
+		}
+		i++;
+	}
 
-    // Print the result with colors
-    for (int i = 0; i < len; i++) {
-        if (result[i] == 'G') {
-            print_colored(input[i], "\033[0;32m"); // Green
-        } else if (result[i] == 'Y') {
-            print_colored(input[i], "\033[0;33m"); // Yellow
-        } else {
-            print_colored(input[i], "\033[0;37m"); // White
-        }
-    }
-    printf("\n");
+	// Print the result with colors
+	i = 0;
+	while (i < len)
+	{
+		if (result[i] == 'G')
+			print_colored(input[i], "\033[0;32m"); // Green
+		else if (result[i] == 'Y')
+			print_colored(input[i], "\033[0;33m"); // Yellow
+		else
+			print_colored(input[i], "\033[0;37m"); // White
+		i++;
+	}
+	printf("\n");
 }
