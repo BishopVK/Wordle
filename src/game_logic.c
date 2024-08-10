@@ -235,7 +235,7 @@ void	check_corrects(char	*input, const char	*word)
 
 #define MAX_LEN 100
 
-void print_colored(char c, const char *color)
+static void print_colored(char c, const char *color)
 {
 	printf("%s%c\033[0m", color, c);
 }
